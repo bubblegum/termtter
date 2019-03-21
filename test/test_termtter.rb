@@ -83,12 +83,12 @@ class TestTermtter < Test::Unit::TestCase
       matche_text = m[1]
       twitter = t
     end
-    
+
     Termtter::Client.call_commands('foo xxxxxxxxxxxxxx', @twitter)
     assert_equal 'foo xxxxxxxxxxxxxx', command_text
     assert_equal 'xxxxxxxxxxxxxx', matche_text
     assert_equal @twitter, twitter
-    
+
     Termtter::Client.clear_commands()
     assert_raise Termtter::CommandNotFound do
       Termtter::Client.call_commands('foo xxxxxxxxxxxxxx', @twitter)
